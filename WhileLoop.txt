@@ -1,0 +1,9 @@
+While loop is called pre-condition loop (condition tested at the start of loop)
+
+WHILE (logical condition)
+    body of the loop
+ENDWHILE
+
+WHILE count <= 10
+    OUTPUT "My Name is Tiff"
+ENDWHILE

@@ -1,0 +1,19 @@
+DECLARE Swap : BOOLEAN
+DECLARE Temp : INTEGER
+DECLARE Pass : INTEGER
+DECLARE Arr : ARRAY[1:5] OF INTEGER
+
+REPEAT
+    FOR Index <- 1 TO LENGTH(Arr) - Pass
+        Swap <- FALSE
+        IF Arr[Index] < Arr[Index+1]
+            THEN 
+                Temp <- Arr[Index]
+                Arr[Index] <- Arr[Index+1]
+                Arr[Index+1] <- Temp
+                Swap <- TRUE
+        ENDIF
+    NEXT Index
+    Pass <- Pass+1
+UNTIL Index > LENGTH(Arr) OR Swap = FALSE
+

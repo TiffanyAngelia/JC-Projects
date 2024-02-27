@@ -1,0 +1,24 @@
+PROCEDURE printMyName()
+    OUTPUT "My Name is Tiff"
+ENDPROCEDURE
+
+CALL printMyName                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+-------------------------------------
+
+PROCEDURE sayHello(name: STRING)
+    OUTPUT "Hello", name
+ENDPROCEDURE
+
+CALL sayHello ("Tiff")
+
+--------------------
+
+PROCEDURE addTwoNumbers(num1:INTEGER, num2:INTEGER)
+    DECLARE sum : INTEGER
+    sum <- num1+num2
+    OUTPUT "The sum of", num1, "and", num2, "is", sum
+ENDPROCEDURE
+
+CALL addTwoNumbers (2,3)
+

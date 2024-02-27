@@ -1,0 +1,13 @@
+DECLARE Radius: REAL
+DECLARE Area: REAL
+CONSTANT PI <- 3.14
+
+OUTPUT " Enter the radius"
+INPUT Radius
+IF Radius <= 0 
+    THEN
+      OUTPUT " Radius cannot be 0"
+    ELSE   
+      Area <- PI * Radius * Radius
+      OUTPUT " The area of the circle is", Area
+ENDIF

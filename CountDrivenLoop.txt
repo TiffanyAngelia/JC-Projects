@@ -1,0 +1,3 @@
+FOR Count <- 1 TO 10
+    OUTPUT "My name is Khan"
+NEXT Count

@@ -1,0 +1,52 @@
+DECLARE Number <- INTEGER
+INPUT Number
+IF Number = 1 
+  THEN 
+    OUTPUT "Sunday"
+  ELSE
+    IF Number = 2
+    THEN 
+      OUTPUT "Monday"
+    ELSE
+      IF Number = 3
+        THEN 
+          OUTPUT "Tuesday"
+        ELSE
+         IF Number = 4
+           THEN 
+             OUTPUT "Wednesday"
+           ELSE
+             IF Number = 5
+               THEN 
+                OUTPUT "Thursday"
+               ELSE
+                 IF Number = 6
+                   THEN 
+                    OUTPUT "Friday"
+                 ELSE
+                   IF Number = 7 
+                    THEN 
+                         OUTPUT "Saturday"
+                    ELSE
+                         OUTPUT "ERROR"
+                   ENDIF
+               ENDIF
+           ENDIF
+         ENDIF
+      ENDIF
+   ENDIF
+ENDIF
+
+
+CASE Number OF
+  CASE 1: "Sunday"
+  CASE 2: "Monday"
+  CASE 3: "Tuesday"
+  CASE 4: "Wednesday"
+  CASE 5: "Thursday"
+  CASE 6: "Friday"
+  CASE 7: "Saturday"
+  OTHERWISE : "error!"
+ENDCASE
+  
+  

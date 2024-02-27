@@ -1,0 +1,5 @@
+DECLARE Studentnames : ARRAY[1:10] OF STRING
+
+FOR Count <- 1 TO 10
+    INPUT StudentNames[Count]
+NEXT Count

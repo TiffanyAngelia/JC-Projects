@@ -1,0 +1,27 @@
+DECLARE Number1 : INTEGER
+DECLARE Number2 : INTEGER
+DECLARE Number3 : INTEGER
+
+OUTPUT "Please enter 1st Number"
+INPUT Number1
+OUTPUT "Please enter 2nd Number"
+INPUT Number2
+OUTPUT "Please enter 3rd Number"
+INPUT Number3
+
+IF Number1 > Number2 
+  THEN 
+     IF Number1 > Number3
+        THEN 
+          OUTPUT "Number1 is the largest"
+        ELSE 
+          OUTPUT "Number3 is the largest"
+     ENDIF
+   ELSE
+     IF Number2 > Number3
+        THEN 
+           OUTPUT "Number2 is the largest"
+        ELSE
+           OUTPUT "Number3 is the largest"
+     ENDIF
+ENDIF
