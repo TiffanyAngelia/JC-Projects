@@ -5,7 +5,7 @@ IF Number = 1
     OUTPUT "Sunday"
   ELSE
     IF Number = 2
-    THEN 
+     THEN 
       OUTPUT "Monday"
     ELSE
       IF Number = 3
