@@ -1,0 +1,19 @@
+
+
+PROCEDURE Count()
+    Number <- 0
+    even <- 0
+    odd <- 0
+    WHILE Number <> 99 DO
+        INPUT Number  
+        IF MOD(Number,2) = 0
+            even = even + 1
+        ELSE:
+            odd = odd + 1
+        ENDIF
+    ENDWHILE            
+    OUTPUT odd
+    OUTPUT even
+ENDPROCEDURE
+
+Count()

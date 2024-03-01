@@ -18,6 +18,8 @@ def Count():
             even = even + 1
         else:
             odd = odd + 1
+
+            
     print (f"there are {even} even num")
     print (f"there are {odd} odd num")
 
