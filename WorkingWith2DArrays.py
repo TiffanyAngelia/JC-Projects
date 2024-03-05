@@ -11,3 +11,12 @@ for rows in range(6):
         print(Marks[rows][col], end=" ")
     print() 
 
+
+TestScores = [[67,78],
+              [88,79],
+              [66,59],
+              [99,81],
+              [77,92]]
+StudentNames = ['Alexa', 'Ian', 'Irin','John','Felice']
+print (StudentNames[0],TestScores[0][0],TestScores[0][1])
+
