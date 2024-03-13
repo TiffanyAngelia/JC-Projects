@@ -18,5 +18,6 @@ TestScores = [[67,78],
               [99,81],
               [77,92]]
 StudentNames = ['Alexa', 'Ian', 'Irin','John','Felice']
-print (StudentNames[0],TestScores[0][0],TestScores[0][1])
 
+for r in range(5):
+    print (StudentNames[r],TestScores[r][0],TestScores[r][1])
