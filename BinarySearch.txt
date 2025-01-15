@@ -1,0 +1,8 @@
+DECLARE 
+
+
+myArr = [2,3,5,7,9,11,14,18,23]
+found = False
+search = int(input("Please enter a number: "))
+high = len(myArr)-1
+low = 0
