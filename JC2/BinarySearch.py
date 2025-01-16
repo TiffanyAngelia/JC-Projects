@@ -5,8 +5,8 @@
 #4.) IF myArr[mid] > SE THEN high <- mid-1
 #5.) IF myArr[mid] < SE THEN low <- mid+1
 #6.) Repeat the steps until found
-
 myArr = [2,3,5,7,9,11,14,18,23]
+
 found = False
 flag = False
 search = int(input("Please enter a number: "))
@@ -22,7 +22,7 @@ while found == False and flag == False:
         high = mid-1
     elif myArr[mid] < search:
         low = mid+1
-    if low != high:
+    if low > high:
         flag = True
 
 if found == False:
