@@ -57,6 +57,7 @@ def SortSearch():
     inp = int(input("What element do you want to search the Col for?: "))
     i = int(input("What is the Row number?: "))  
     j=0
+    j=0
     high = len(myArr[i])-1
     low = 0
     flag = False
@@ -81,10 +82,10 @@ def SortSearch():
             found = True
         j+=1
 
-    if found == False:
-        print("NOT FOUND")
-    else: 
-        print("The column is: ", j)
+#     if found == False:
+#         print("NOT FOUND")
+#     else: 
+#         print("The column is: ", j)
 
 
 SortSearch()
