@@ -56,36 +56,24 @@ def SortSearch():
     print(myArr)
     inp = int(input("What element do you want to search the Col for?: "))
     i = int(input("What is the Row number?: "))  
-    j=0
-    j=0
     high = len(myArr[i])-1
     low = 0
     flag = False
     while found == False and flag == False:
         mid = (low+high)//2
-        if myArr[mid] == i:
+        if myArr[i][mid] == inp:
             found = True
-        elif myArr[mid] > i:
+        elif myArr[i][mid] > inp:
              high = mid-1
-        elif myArr[mid] < i:
+        elif myArr[i][mid] < inp:
             low = mid+1
         if low > high:
             flag = True
 
-    
-    
-    
- 
-    j=0
-    while found == False:
-        if myArr[i][j] == inp:
-            found = True
-        j+=1
-
-#     if found == False:
-#         print("NOT FOUND")
-#     else: 
-#         print("The column is: ", j)
+    if found == False:
+        print("NOT FOUND")
+    else: 
+        print("The column is: ", mid)
 
 
 SortSearch()
