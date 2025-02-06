@@ -4,7 +4,7 @@ DECLARE top : INTEGER
 STACK_FULL <-- LENGTH(stack)
 top <-- -1
 PROCEDURE pushStack(item : INTEGER)
-    IF LENGTH(stack) = STACK_FULL THEN
+    IF top = STACK_FULL THEN
         OUTPUT "STACK IS FULL"
     ELSE
         top <-- top + 1

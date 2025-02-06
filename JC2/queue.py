@@ -26,11 +26,14 @@ def Dequeue():
     if lenofQueue == 0:
         print("Queue is empty")
     else:
+        # Value = queue[front]
         queue[front] = None
-        front += 1
         lenofQueue += 1
         if front == MAX_QUEUE-1:
             front == 0
+        else:
+            front += 1
+        # return Value
 
 print(queue)
 print(Enqueue(1))
@@ -41,4 +44,7 @@ print(queue)
 print(Dequeue())
 print(Dequeue())
 print(Dequeue())
+print(queue)
+print(Enqueue(1))
+print(Enqueue(2))
 print(queue)
