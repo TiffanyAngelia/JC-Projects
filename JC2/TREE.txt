@@ -1,0 +1,34 @@
+TREES: heirarchal, stored as nodes, not linear, uses links (DONT TALK IN GENERAL, ONLY BINARY)
+
+ROOT(TOP) ==> CHILD NODE & PARENT NODES--> LEAF NODE(terminal, no CHILDREN)
+
+
+
+Binary Tree --> only have MAX 2 children
+    : are heirarchal data structures (not linear), made up of nodes, each nodes MAX 2 child nodes (0,1,2) and connected using branches (edges or links)
+
+Binary Search Tree (BST) --> special & is sorted & unique values
+    : in AS --> Binary Search Tree is Binary Tree
+
+                         (ROOT)
+
+(Left Child (value < parent)) (Right Child (value > parent))
+
+    already has a value --> ( is it < or > than parent?) --> go down the link 
+
+
+    WAYS TO TRAVERSE:
+
+                        (A)
+                    (B)     (C)
+
+        1. Preorder ( ROOT --> LEFT --> RIGHT ) ABC                                                   #left always visited first 
+        ---> not a leaf node? is a subtree, then assume that node is the new "root".
+
+        2. Inorder ( LEFT --> ROOT --> RIGHT) BAC 
+        ---> not a leaf node? go to the MOST LEFT, then the root of subtree and the right child of subtree. Go to the parent of that subtree root. 
+        (WILL BE SORTED IN ORDER, INFIX AND WRITTEN MATHEMATICALLY)
+
+        3. Postorder ( LEFT --> RIGHT --> ROOT ) BCA 
+        ---> not a leaf node? go to MOST LEFT, then the right of that subtree. Exausted? Go to the RIGHT, always prioritise LEFT. Last will be the ROOT.
+        (WILL BE IN RPN NOTATION)
