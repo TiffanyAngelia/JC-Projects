@@ -22,7 +22,7 @@ Binary Search Tree (BST) --> special & is sorted & unique values
                         (A)
                     (B)     (C)
 
-        1. Preorder ( ROOT --> LEFT --> RIGHT ) ABC                                                   #left always visited first 
+        1. Preorder ( ROOT --> LEFT --> RIGHT ) ABC                                                  #left always visited first 
         ---> not a leaf node? is a subtree, then assume that node is the new "root".
 
         2. Inorder ( LEFT --> ROOT --> RIGHT) BAC 

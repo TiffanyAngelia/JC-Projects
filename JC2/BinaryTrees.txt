@@ -1,0 +1,39 @@
+#Declaring the Tree
+
+TYPE Node 
+    DECLARE leftPointer : INTEGER    #POINTERS MUST ALWAYS BE INTEGER ONLY
+    DECLARE Data : INTEGER
+    DECLARE rightPointer : INTEGER
+ENDTYPE
+
+DECLARE Tree : ARRAY[0:9] OF Node 
+DECLARE rootPointer: INTEGER
+DECLARE freePointer: INTEGER
+rootPointer <-- -1
+freePointer <-- 0
+
+-------------------------------------------------------------------------------------------------
+
+#Initialise the Tree
+
+FOR i <-- 0 TO LENGTH(Tree)-1
+    Tree[i].leftPointer <-- -1
+    Tree[i].rightPointer <-- -1
+    Tree[i].Data <-- i 
+NEXT i
+TREE[9].Data <-- -1
+
+-------------------------------------------------------------------------------------------------
+
+DECLARE Tree : ARRAY[0:9,0:2] OF INTEGER
+DECLARE rootPointer: INTEGER
+DECLARE freePointer: INTEGER
+rootPointer <-- -1
+freePointer <-- 0
+
+FOR i <-- 0 TO LENGTH(Tree)-1
+    Tree[i,0] <-- -1
+    Tree[i,1] <-- i 
+    Tree[i,2] <-- -1
+NEXT i
+TREE[9,1] <-- -1

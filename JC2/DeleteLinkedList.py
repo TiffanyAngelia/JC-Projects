@@ -26,7 +26,10 @@ def deleteFromLinkedList (item):
                 lLData[itemPointer] = None
                 lLPointer[previousPointer] = oldPointer
                 lLPointer[itemPointer] = heapPointer
-                #change pointer
+                heapPointer = itemPointer
+                #CHANGE YOUR POINTERS
+                
+
                 found = True
             else: 
                 previousPointer = itemPointer
