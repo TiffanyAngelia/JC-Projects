@@ -37,3 +37,26 @@ FOR i <-- 0 TO LENGTH(Tree)-1
     Tree[i,2] <-- -1
 NEXT i
 TREE[9,1] <-- -1
+
+-------------------------------------------------------------------------------------------------
+
+#Searching element in Tree
+
+TYPE Node 
+    DECLARE leftPointer : INTEGER    #POINTERS MUST ALWAYS BE INTEGER ONLY
+    DECLARE Data : INTEGER
+    DECLARE rightPointer : INTEGER
+ENDTYPE
+
+DECLARE Tree : ARRAY [0:9] OF TREE
+DECLARE itemPointer, rootPointer, heapPointer : INTEGER
+
+FUNCTION searchTree (SearchElement) RETURNS INTEGER:
+    itemPointer = rootPointer
+    WHILE itemPointer != -1 AND Tree[itemPointer].Data != SearchElement
+        IF SearchElement > Tree[itemPointer].Data
+            itemPointer = Tree[itemPointer].rightPointer
+        ELSE IF SearchElement > Tree[itemPointer].Data
+            itemPointer = Tree[itemPointer].rightPointer
+    RETURN itemPointer
+
