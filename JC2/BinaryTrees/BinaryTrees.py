@@ -44,10 +44,11 @@ def insertToTree(num):
     global newFreePointer
     global freePointer
     if rootPointer == -1:
-
+        rootPointer = 0
+        newFreePointer = freePointer
+        freePointer += 1
     elif freePointer == -1:
-        return -1
-
+        print("UNABLE TO ADD, THE TREE IS FULL")
     else:
         newFreePointer = freePointer
         freePointer += 1
