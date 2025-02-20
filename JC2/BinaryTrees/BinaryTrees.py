@@ -22,7 +22,7 @@ Tree = [
 [-1,-1,-1]
 ]
 
-freePointer = 6
+freePointer = 6 #if -1 it's full
 rootPointer = 0
 oldPointer = -1
 
@@ -39,4 +39,16 @@ print("Item is found at index: ", searchTree(12))
 print("Item is found at index: ", searchTree(9))
 print("Item is found at index: ", searchTree(13))
 print("Item is found at index: ", searchTree(999))
+
+def insertToTree(num):
+    global newFreePointer
+    global freePointer
+    if rootPointer == -1:
+
+    elif freePointer == -1:
+        return -1
+
+    else:
+        newFreePointer = freePointer
+        freePointer += 1
 

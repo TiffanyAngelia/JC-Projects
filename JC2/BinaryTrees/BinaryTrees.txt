@@ -60,3 +60,9 @@ FUNCTION searchTree (SearchElement) RETURNS INTEGER:
             itemPointer = Tree[itemPointer].rightPointer
     RETURN itemPointer
 
+-------------------------------------------------------------------------------------------------
+
+# Inserting an item to the TREE
+
+DECLARE newItemPointer: INTEGER
+newItemPointer = freePointer
