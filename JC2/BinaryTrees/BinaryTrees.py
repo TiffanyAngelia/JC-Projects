@@ -35,21 +35,48 @@ def searchTree(searchElement):
             itemPointer = Tree[itemPointer][0]
     return itemPointer
 
-print("Item is found at index: ", searchTree(12))
-print("Item is found at index: ", searchTree(9))
-print("Item is found at index: ", searchTree(13))
-print("Item is found at index: ", searchTree(999))
+# print("Item is found at index: ", searchTree(12))
+# print("Item is found at index: ", searchTree(9))
+# print("Item is found at index: ", searchTree(13))
+# print("Item is found at index: ", searchTree(999))
 
 def insertToTree(num):
-    global newFreePointer
+    global NewItemPointer
+    global rootPointer
     global freePointer
+    global previousPointer
+    global itemPointer
+    global right
     if rootPointer == -1:
         rootPointer = 0
-        newFreePointer = freePointer
-        freePointer += 1
+        NewItemPointer = freePointer
+        freePointer = Tree[freePointer][1]
     elif freePointer == -1:
         print("UNABLE TO ADD, THE TREE IS FULL")
     else:
-        newFreePointer = freePointer
-        freePointer += 1
+        previousPointer = freePointer
+        NewItemPointer = freePointer
+        freePointer = Tree[freePointer][1]
+        itemPointer = rootPointer
+        while itemPointer != -1:
+            previousPointer = itemPointer   
+            if num > Tree[itemPointer][1]:
+                itemPointer = Tree[itemPointer][2]
+                right = True
+            elif num < Tree[itemPointer][1]:
+                itemPointer = Tree[itemPointer][0] 
+                right = False
 
+        if right == True:
+            Tree[previousPointer][2] = NewItemPointer
+        else:
+            Tree[previousPointer][0] = NewItemPointer
+        Tree[NewItemPointer][1] = num
+
+print(f"BEFORE: {Tree}")
+insertToTree(99)
+insertToTree(10)
+insertToTree(88)
+insertToTree(278)
+insertToTree(69797)
+print(f"AFTER: {Tree}")
