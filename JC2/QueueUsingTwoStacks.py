@@ -69,3 +69,4 @@ def Dequeue():
 Enqueue(2)
 Enqueue(3)
 Enqueue(4)
+Dequeue()
