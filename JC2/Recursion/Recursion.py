@@ -62,11 +62,23 @@ def Fibonacci(Count):
 # for i in range(8):
 #     print(Fibonacci(i))
 
-#------------------------------------------------------ BINARY SEARCH
+#------------------------------------------------------ BINARY SEARCH without not in the list thooo
 
 myArr = [1,2,3,4,5,6,7,8,9]
 
-def BinarySearch(num):
-    if myArr[] == num:
-        return
+def BinarySearch(num, myArray):
+    mid = int(len(myArray))-1
+    if myArr[mid] == num:
+        return mid
+    else:
+        if myArr[mid] > num:
+            return BinarySearch(num,myArray[:mid])
+        else:
+            return BinarySearch(num,myArray[mid:])
 
+try:                                                   #CHEATING
+    print(BinarySearch(9,myArr))
+except RecursionError:
+    print("NOT FOUND")
+
+#------------------------------------------------------
