@@ -3,11 +3,31 @@
 #Creating an object ---- CONSTRUCTION
 #Constructor is a special method used to contruct objects. Allows you to create personalised objects while creation. 
 
+#Abstraction
+
 #Encapsulation: to group together the data and all the actions of the data. Hiding the data.
+
+#Inheritance: 
+    # Teacher (Child class / sub class) is a Person (Parent Class / Super class)
+    # Student is a Person 
+    # if the parent class attribute is private, cannot be directly accessed, so use getters and setters
+    # Multiple inhertance = one subclass inherits from multiple super classes
+
+#Polymorphism: is when a method (subclass) redefines a method from its parent class to add additional functionality
+
+#Method overriding: allows you to have multiple mthods with the same name, diff num, types or order of arg
+
+# in the same class, if have two of he same methods. --> method overriding
+# if inherited by another class --> polymorphism
+
+
+
 
 #Instance = Object
 #Instance variable = The variables of the object, may differ for each object (self.)
 #Non-instance variables / Class variables = The variables that belong to all objcets in the class (outside __init__)
+
+
 
 #----------------------------------------------------
 
@@ -54,7 +74,6 @@ Emily = Student("Emily","Physics","Female")
 Nadine = Student("Nadine","Biology","Female") 
 # Nadine.introduction()
 
-#----------------------------------------------------
 
 class Person:
 
@@ -71,6 +90,10 @@ class Person:
 
     def Run(self):
         print(f"{self.__name} is now running!! D:")
+    
+    def printDetails(self):
+        print(f"Name is {self.__name}, Date of Birth is {self.__DOB}, Gender is {self.__gender}")
+
     
     #getters
     def getName(self):
@@ -92,21 +115,60 @@ class Person:
 Emily = Person("Emily","25/11/2007", "Female") #Instantiating
 Nadine = Person("Nadine","07/08/2008", "Male")
 Gichelle = Person("Gichelle","14/07/2008", "Female")
+# Emily.Run()           
+# Emily.walk()
 
-Emily.Run()           
-Emily.walk()
 # print(Nadine.__name) #doesn't work if private
 # print(Nadine.__DOB)
 # print(Nadine.__gender)
 # print(Nadine.__dict__)       #dictionary format
 # print(Person.personCount)
 
-print(Nadine.getName())
-print(Nadine.getDOB())
-print(Nadine.getGender())
+# print(Nadine.getName())
+# print(Nadine.getDOB())
+# print(Nadine.getGender())
 
-print(Nadine.__dict__)       #dictionary format
-print(Person.personCount)
+# print(Nadine.__dict__)       #dictionary format
+# print(Person.personCount)
 
-Emily.setName("")
 
+# Emily.setName("Gichelle")
+# Emily.printDetails()
+
+#----------------------------------------------------
+
+class Teacher (Person):
+    def __init__(self, name, DOB, gender, subject, salary):
+        super().__init__(name,DOB,gender)
+        self.__subject = subject
+        self.__salary = salary
+
+    def getSubject(self):
+        return self.__subject
+
+    def getSalary(self):
+        return self.__salary
+    
+    def printDetails(self):
+        # print(f"Name is {self.__name}, Date of Birth is {self.__DOB}, Gender is {self.__gender},  Salary is {self.__salary}") # CANNOT ACCESSED BECAUSE ITS PRIVATE
+        print(f"Name is {self.getName()}, Date of Birth is {self.getDOB()}, Gender is {self.getGender()},  Salary is {self.__salary}")
+    
+    
+MrKhan = Teacher("Khan", "20/07/1999", "Male","CS","$100")
+print("My subject is ", MrKhan.getSubject())
+MrKhan.printDetails()
+
+class Student(Person):
+    def __init__(self,name,DOB, gender, grade):
+        super(). __init__(name,DOB,gender)
+        self.grade = grade
+
+    def printDetails(self):
+        print(f"Name is {self.getName()}, Date of Birth is {self.getDOB()}, Gender is {self.getGender()},  Grade is {self.grade}")
+
+
+
+Gichelle = Student("Gichelle", "19/06/2008", "Female", "FFF")
+Valerie = Student("Valerie", "05/05/2008", "Female", "ABC")
+Gichelle.printDetails()
+Valerie.printDetails()
