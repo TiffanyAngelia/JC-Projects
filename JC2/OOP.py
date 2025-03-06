@@ -172,3 +172,5 @@ Gichelle = Student("Gichelle", "19/06/2008", "Female", "FFF")
 Valerie = Student("Valerie", "05/05/2008", "Female", "ABC")
 Gichelle.printDetails()
 Valerie.printDetails()
+
+
