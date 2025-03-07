@@ -9,9 +9,16 @@
 
 #Inheritance: 
     # Teacher (Child class / sub class) is a Person (Parent Class / Super class)
-    # Student is a Person 
+    # Student *is* a Person 
     # if the parent class attribute is private, cannot be directly accessed, so use getters and setters
     # Multiple inhertance = one subclass inherits from multiple super classes
+
+# Containment / Aggregation: one class has a reference to another class, can exist independantly. (Class A *has a* Class B) 
+#            VS.
+# Composition : if one cannot exist if the other doesn't.
+    # Is Room and Table independant? ------> YES, so Containment
+    # Is Building and Rooms independant? -----> NO, so Composition
+
 
 #Polymorphism: is when a method (subclass) redefines a method from its parent class to add additional functionality
 
@@ -155,8 +162,8 @@ class Teacher (Person):
     
     
 MrKhan = Teacher("Khan", "20/07/1999", "Male","CS","$100")
-print("My subject is ", MrKhan.getSubject())
-MrKhan.printDetails()
+# print("My subject is ", MrKhan.getSubject())
+# MrKhan.printDetails()
 
 class Student(Person):
     def __init__(self,name,DOB, gender, grade):
@@ -170,7 +177,64 @@ class Student(Person):
 
 Gichelle = Student("Gichelle", "19/06/2008", "Female", "FFF")
 Valerie = Student("Valerie", "05/05/2008", "Female", "ABC")
-Gichelle.printDetails()
-Valerie.printDetails()
+# Gichelle.printDetails()
+# Valerie.printDetails()
 
+
+#----------------------------------------------------
+
+class Library():
+    NumofBooks = 0 
+    def __init__(self, Name, Location):
+        self.__Name = Name 
+        self.__Location = Location
+        self.__Book = []
+
+    def getName(self):
+        return self.__Name
+    def getLocation(self):
+        return self.__Location
+    def addBook(self, Book):
+        self.__Book.append(Book)
+        Library.NumofBooks +=1 
+    def printNumofBooks(self):
+        print(Library.NumofBooks)
+    def printBooks(self):
+        for Book in self.__Book: #for item in list
+            print(f"Book Author : {Book.getAuthor()}, Title : {Book.getTitle()}")
+
+    
+class Book():
+    def __init__(self, Author, Title):
+        self.__Author = Author
+        self.__Title = Title
+
+    def getAuthor (self):
+        return self.__Author
+    def getTitle(self):
+        return self.__Title
+
+BBSLibrary = Library("BBS Library", "1st Floor")
+Book1 = Book("JK Rowling", "Harry Potter")
+Book2 = Book("Gichelle Natashya","CS AS/A Level Course Book")
+BBSLibrary.addBook(Book1)
+BBSLibrary.addBook(Book2)
+# BBSLibrary.printNumofBooks()
+# BBSLibrary.printBooks()
+
+#----------------------------------------------------
+
+
+class OverRiding ():
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+    def add (self,a,b):
+        return a + b
+
+    def add (self,a,b,c):
+        return a + b + c
+
+Object = OverRiding(1,2,3)
 
