@@ -1,0 +1,7 @@
+Random Files --> direct access
+
+
+TEXT =  READLINE   , WRITELINE (.txt)
+BINARY = GETRECORD , PUTRECORD (.dat)
+
+ACCESS FILE MODE RANDOM = OPENFILE "NewFile.dat" FOR RANDOM (READ, WRITE at the same time)

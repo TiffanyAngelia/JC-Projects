@@ -236,5 +236,8 @@ class OverRiding ():
     def add (self,a,b,c):
         return a + b + c
 
-Object = OverRiding(1,2,3)
+Object1 = OverRiding(1,2,3)
+
+print(Object1.add(1,2,3))
+
 

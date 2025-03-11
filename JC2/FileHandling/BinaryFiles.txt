@@ -1,0 +1,77 @@
+TYPE StudentRec
+    DECLARE StdId: INTEGER
+    DECLARE Name: STRING
+ENDTYPE
+
+DECLARE Student1 : StudentRec
+DECLARE StudentFile: STRING
+StudentFile <-- "StudentFile.dat"  
+
+// ----------- SERIAL FILE
+
+OPENFILE StudentFile FOR APPEND 
+
+OUTPUT "Enter student ID:" 
+INPUT Student1.StdId
+
+WHILE Student1.StdId <> -1 
+    OUTPUT "Enter student name: "
+    INPUT Student1.Name
+    PUTRECORD StudentFile, Student1 
+    OUTPUT "Enter student ID: " 
+    INPUT Student1.StdId
+ENDWHILE
+CLOSEFILE StudentFile
+
+------------ Read everything in the file
+
+OPENFILE StudentFile FOR READ
+
+WHILE NOT EOF(StudentFile) 
+    GETRECORD StudentFile, Student1
+    OUTPUT Student1.StdId, Student1.name
+ENDWHILE
+
+CLOSEFILE StudentFile
+
+
+
+
+// ----------- SEQUENTIAL FILE
+
+DECLARE Student1 : StudentRec
+DECLARE StudentTemp : StudentRec
+DECLARE StudentFile: STRING
+DECLARE StudentNewFile: STRING
+StudentFile <-- "StudentInfo.dat"
+StudentNewFile <-- "StudentTemp.dat"
+
+OPENFILE StudentFile FOR READ     #Already has some records
+OPENFILE StudentNewFile FOR WRITE
+
+OUTPUT "Enter student ID: " 
+INPUT Student1.StdId
+OUTPUT "Enter student Name: " 
+INPUT Student1.Name
+RecAdded <-- FALSE
+
+WHILE RecAdded = FALSE 
+    GETRECORD StudentFile, StudentTemp           #reading the first record 
+    IF StudentTemp.StdId < Student1.StdId THEN   #IF our search ID is bigger than the first ID
+        PUTRECORD StudentNewFile, StudentTemp
+    ELSE
+        PUTRECORD StudentNewFile, Student1
+        RecAdded <-- TRUE
+    ENDIF
+ENDWHILE
+
+WHILE NOT EOF (StudentFile)
+    GETRECORD StudentFile, StudentTemp
+    PUTRECORD StudentNewFile, StudentTemp
+ENDWHILE
+
+
+CLOSEFILE StudentFile
+CLOSEFILE StudentTemp
+DELETE StudentFile
+RENAME StudentNewFile, StudentFile
