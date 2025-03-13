@@ -5,7 +5,7 @@ ENDTYPE
 
 DECLARE Student1 : StudentRec
 DECLARE StudentFile: STRING
-StudentFile <-- "StudentFile.dat"  
+StudentFile <-- "StudentInfo.dat"  
 
 // ----------- SERIAL FILE
 
@@ -55,7 +55,7 @@ OUTPUT "Enter student Name: "
 INPUT Student1.Name
 RecAdded <-- FALSE
 
-WHILE RecAdded = FALSE 
+WHILE RecAdded = FALSE AND NOT EOF(StudentFile)
     GETRECORD StudentFile, StudentTemp           #reading the first record 
     IF StudentTemp.StdId < Student1.StdId THEN   #IF our search ID is bigger than the first ID
         PUTRECORD StudentNewFile, StudentTemp
@@ -65,13 +65,62 @@ WHILE RecAdded = FALSE
     ENDIF
 ENDWHILE
 
-WHILE NOT EOF (StudentFile)
-    GETRECORD StudentFile, StudentTemp
-    PUTRECORD StudentNewFile, StudentTemp
-ENDWHILE
-
+IF EOF(StudentFile) THEN
+    PUTRECORD StudentNewFile, Student1
+ELSE
+    WHILE NOT EOF (StudentFile)
+        GETRECORD StudentFile, StudentTemp
+        PUTRECORD StudentNewFile, StudentTemp
+    ENDWHILE
+ENDIF
 
 CLOSEFILE StudentFile
 CLOSEFILE StudentTemp
 DELETE StudentFile
 RENAME StudentNewFile, StudentFile
+
+
+
+// ----------- SEQUENTIAL FILE
+
+DECLARE Student1 : StudentRec
+DECLARE StudentFile: STRING
+DECLARE Address: INTEGER
+StudentFile <-- "StudentInfo.dat"
+
+OPENFILE StudentFile FOR RANDOM 
+
+OUTPUT "Enter student ID: " 
+INPUT Student1.StdId
+OUTPUT "Enter student Name: " 
+INPUT Student1.Name
+
+Address = Hash(Student1.StdId)
+SEEK(StudentFile, Address) #From this file, go to the address. (Empty? stored there. Already there? Overwrite the record)
+
+PUTRECORD StudentFile, Student1
+
+CLOSEFILE StudentFile
+
+# Openhash method: if there is a record at the location already, move down and check if the next record is free. 
+# Closehash method: stores the record in the overflow area. 
+
+-------------- find a record in a random file
+
+DECLARE Student1 : StudentRec
+DECLARE StudentFile: STRING
+DECLARE Address: INTEGER
+StudentFile <-- "StudentInfo.dat"
+
+OPENFILE StudentFile FOR RANDOM 
+
+OUTPUT "Enter student ID: " 
+INPUT Student1.StdId
+
+Address = Hash(Student1.StdId)
+SEEK(StudentFile, Address)
+
+GETRECORD StudentFile, Student1
+
+CLOSEFILE StudentFile
+

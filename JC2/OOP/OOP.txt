@@ -1,0 +1,59 @@
+CLASS Person
+    PRIVATE Name : STRING       # DONT USE DECLARE, USE PRIVATE OR PUBLIC, better if PRIVATE
+    PRIVATE Age : INTEGER
+   
+    PUBLIC PROCEDURE NEW (PName: STRING, PAge: INTEGER)         # NEW for constructing objects, ALWAYS PROCEDURE 
+        Name <-- PName
+        Age <-- PAge
+    ENDPROCEDURE
+    
+    PUBLIC PROCEDURE SetName(PName: STRING)
+        Name <-- PName
+    ENDPROCEDURE
+    
+    PUBLIC PROCEDURE SetAge(PAge: STRING)
+        Age <-- PAge
+    ENDPROCEDURE 
+
+    PUBLIC FUNCTION GetName() RETURNS STRING
+        RETURN Name
+    ENDFUNCTION
+    
+    PUBLIC FUNCTION GetAge() RETURN INTEGER
+        RETURN Age
+    ENDFUNCTION
+ENDCLASS
+
+
+
+
+
+
+CLASS Student INHERITS Person
+    PRIVATE Grade: CHAR
+
+    PUBLIC PROCEDURE NEW(PName: STRING, PAge: INTEGER, PGrade: CHAR)
+        SUPER.NEW(PName, PAge)
+        Grade <-- PGrade
+    ENDPROCEDURE 
+
+    PUBLIC PROCEDURE SetGrade(PGrade: CHAR)
+        Grade <-- PGrade
+    ENDPROCEDURE
+    
+    PUBLIC FUNCTION GetGrade() RETURNS CHAR
+        RETURN Grade
+    ENDFUNCTION
+ENDCLASS
+
+
+Student1 <-- NEW Student("Emily", 15, 'A')
+Student2 <-- NEW Student("Gichelle", 16, 'F')
+
+OUTPUT Student1.GetName()
+OUTPUT Student1.GetAge()
+OUTPUT Student1.GetGrade()
+
+Student1.SetGrade('B')
+
+
