@@ -28,25 +28,41 @@ class Picture:
 #2. d)
 
 
-pictureArray = [Picture("",0,0) * 100] # of type Picture
+pictureArray = [Picture("",0,0,"") for _ in range(100)] # of type Picture
 
 #2. e)
 
 def ReadData():
-    Count = 0
     try: 
-        for i in range (100):
-            DescLine = open("C:\Users\tiffa\JC1T\JC2\Pictures.txt", 'r').readline()
-            WidthLine = open("C:\Users\tiffa\JC1T\JC2\Pictures.txt", 'r').readline()
-            HeightLine = open("C:\Users\tiffa\JC1T\JC2\Pictures.txt", 'r').readline()
-            ColourLine = open("C:\Users\tiffa\JC1T\JC2\Pictures.txt", 'r').readline()
+        file = open("JC2\_Past_Year_Papers\Pictures.txt", 'r')
+        Count = 0
+        while True:
+            DescLine = file.readline().strip()
+
+            if DescLine == "": return Count
+            WidthLine = int(file.readline().strip())
+            HeightLine = int(file.readline().strip())
+            ColourLine = file.readline().strip()
+
             NewObject = Picture(DescLine,WidthLine,HeightLine,ColourLine)
+            pictureArray[Count] = NewObject
             Count += 1
-            pictureArray[i] = NewObject
-        return Count
+            
     except FileNotFoundError:
         print("file is not found")
 
 #2. f)
+
+ReadData()
+
+#2. g)
+
+UserColour = input("Enter the colour: ").lower()
+UserMaxWidth = int(input("Enter the max width: "))
+UserMaxHeight = int(input("Enter the max height: "))
+
+for i in range(len(pictureArray)):
+    if pictureArray[i].GetColour() == UserColour and pictureArray[i].GetHeight() < UserMaxHeight and pictureArray[i].GetWidth() < UserMaxWidth:
+        print(f"DESCRIPTION: {pictureArray[i].GetDescription()}, WIDTH: {pictureArray[i].GetWidth()}, HEIGHT: {pictureArray[i].GetHeight()}")
 
 
