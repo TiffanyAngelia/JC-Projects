@@ -70,8 +70,8 @@ for x in range(10):
     for y in range(10):
         myArray[x][y] = random.randint(1,100)
 
-print("BEFORE")
-printArray(myArray)
+# print("BEFORE")
+# printArray(myArray)
 
 #2. b) (i)
 
@@ -83,8 +83,8 @@ for x in range(len(myArray)-1):
                 myArray[x][z] = myArray[x][z+1]
                 myArray[x][z+1] = temp
 
-print("AFTER")
-printArray(myArray)
+# print("AFTER")
+# printArray(myArray)
 
 #2. c) (i)
 
@@ -109,4 +109,51 @@ class Card:
     def __init__(self,PNumber,PColour):
         self.__number = PNumber
         self.__colour = PColour
-    def getNumber(self, )
+    def getNumber(self):
+        return self.__number
+    def getColour(self):
+        return self.__colour
+    
+#3. c)
+
+CardArray = [Card(0,"") for _ in range(30)]
+Player1 = [Card(0,"")for _ in range(4)]
+
+file = open("JC2\_Past_Year_Papers\MJ22P42\CardValues.txt","r")
+for i in range(30):
+    colour = file.readline().strip()
+    line = file.readline().strip()
+    CardArray[i] = Card(colour, line)
+
+
+#3. d) 
+NumbersChosen = [0 for _ in range(30)]
+def  Choosecard():
+    FlagFound = False
+    UserIndex = int(input("Please enter an index from 1 to 30 inclusive: "))
+    while FlagFound == False:
+        if UserIndex < 1 or UserIndex > 30:
+            UserIndex = int(input("Please enter an index from 1 to 30 inlcusive: "))
+        elif NumbersChosen[UserIndex-1] == 1:
+            print("Not avaliable!!")
+        else:
+            print(f"{UserIndex} is avaliable!!")
+            FlagFound = True
+    NumbersChosen[UserIndex-1] = 1
+    return UserIndex -1
+
+#3. e) (i)
+
+for i in range(4):
+    CardChosen = Choosecard()
+    Player1[i] = CardArray[CardChosen]
+
+for i in range(4): 
+    print(Player1[i].getColour())
+    print(Player1[i].getNumber())
+
+            
+
+
+
+
