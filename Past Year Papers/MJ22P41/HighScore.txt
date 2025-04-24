@@ -1,0 +1,7 @@
+HIH, 0
+JOJ, 9
+KOP, 8
+QUQ, 7
+POP, 12
+UIU, 6
+PIP, 4
